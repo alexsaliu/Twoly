@@ -1,0 +1,36 @@
+.grid-header {
+    display: flex;
+    height: 20px;
+}
+.grid-header div {
+    width: 14.28%;
+    text-align: center;
+    font-size: 0.7em;
+}
+.grid-container {
+    height: 50%;
+}
+.grid-box {
+    height: calc(100% - 20px);
+    width: 100%;
+    overflow: scroll;
+}
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.day-container {
+    width: calc(14.28% - 4px);
+    box-shadow: 0px 0px 2px 0px lightgrey;
+    border-radius: 5px;
+    font-size: 0.5em;
+    height: 60px;
+    margin: 2px;
+    background: white;
+}
+.view-container {
+    height: 50%;
+    width: 100%;
+    background: lavender;
+}
