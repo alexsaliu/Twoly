@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import Day from './day';
-import {generateDates} from './helpers';
+import {initializeCalendarDates} from './helpers';
 import './grid.css';
 
 export default class Grid extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            startWeek: [moment('2019-10-01').add(2, 'days').format('dddd, YYYY-MM-DD')],
+            startWeek: moment().format('YYYY-MM-DD'),
             endWeek: moment().endOf('month').week(),
-            date: generateDates(moment().format('YYYY-MM-DD'), 60, 60),
-        }
-        const test = () => {
-            return this.state
+            date: initializeCalendarDates(moment().format('YYYY-MM-DD'), 84, 84),
         }
     }
 
