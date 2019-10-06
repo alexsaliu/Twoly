@@ -1,18 +1,7 @@
 import moment from 'moment';
 
-const sayHi = () => {
-    return "Say Hi";
-}
-
-const dates = [
-    moment().add(0, 'days').format('dddd, YYYY MM DD'),
-    moment().add(1, 'days').format('dddd, YYYY MM DD'),
-    moment().add(2, 'days').format('dddd, YYYY MM DD'),
-    moment().add(3, 'days').format('dddd, YYYY MM DD'),
-    moment().add(4, 'days').format('dddd, YYYY MM DD'),
-]
-
-const initializeCalendarDates = (startDate, daysForward, daysBack) => {
+// Return an array of dates to load calendar days
+const initializeCalendarDays = (startDate, daysForward, daysBack) => {
     const dates = [];
     const equilizeWeeks = weekdaysBeforeAndAfterToday();
     const back = daysBack + equilizeWeeks[0];
@@ -24,6 +13,8 @@ const initializeCalendarDates = (startDate, daysForward, daysBack) => {
     return dates;
 }
 
+// Return number of days to include behind and in front of current day of week
+// to ensure days are loaded in starting Monday as a multiple of 7
 const weekdaysBeforeAndAfterToday = () => {
     const todaysDate = moment().day();
     if (todaysDate === 0) {
@@ -37,4 +28,22 @@ const weekdaysBeforeAndAfterToday = () => {
     }
 }
 
-export {initializeCalendarDates};
+// Returns array of dates before entered date if less than todays date, else dates after entered date.
+// Takes in: starting date YYYY-MM-DD,
+// number or days to load,
+const loadMoreDates = (startDate, days) => {
+    const dates = []
+    if (moment(startDate) <= moment()) {
+        for (let i = days; i > 0; i--) {
+            dates.push(moment(startDate).subtract(i, 'days').format('YYYY-MM-DD'));
+        }
+    }
+    else {
+        for (let i = 1; i <= days; i++) {
+            dates.push(moment(startDate).add(i, 'days').format('YYYY-MM-DD'));
+        }
+    }
+    return dates;
+}
+
+export {initializeCalendarDays, loadMoreDates};
