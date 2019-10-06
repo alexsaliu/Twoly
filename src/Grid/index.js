@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import Day from './day';
+import GridView from './gridView';
 import {initializeCalendarDays, loadMoreDates} from './helpers';
 import './grid.css';
 
@@ -14,6 +15,7 @@ export default class Grid extends Component {
             lastDate: "",
             daysOfWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             weekDay: moment().format('ddd'),
+            daySelected: moment().format('YYYY-MM-DD'),
             gridBoxHeight: 0,
             dateBeforePastDatesLoad: initializeCalendarDays(moment().format('YYYY-MM-DD'), 84, 84)[0],
         }
@@ -29,8 +31,6 @@ export default class Grid extends Component {
     loadDays = (e) => {
         const scrolled = e.target.scrollHeight - e.target.scrollTop;
         if (scrolled >= this.gridHeight + 50) {
-            console.log("we going back!");
-            console.log("THE GRID HEIGHT: ", this.gridHeight);
             const dates = [];
             dates.push(...loadMoreDates(this.state.firstDate, 84));
             dates.push(...this.state.dates);
@@ -42,22 +42,13 @@ export default class Grid extends Component {
             this.maintainScrollPosition = true;
         }
         else if (scrolled <= this.state.gridBoxHeight + 50) {
-            console.log("we going forward!");
-            console.log("THE GRID HEIGHT: ", this.gridHeight);
-            console.log("THE SCROLL HEIGHT: ", scrolled);
             const dates = [];
             dates.push(...this.state.dates);
-            console.log("THE DATES 1: ", dates);
             dates.push(...loadMoreDates(this.state.lastDate, 84));
-            console.log("THE DATES 2: ", dates);
             this.setState({dateBeforePastDatesLoad: ""});
             const lastDate = moment(this.state.lastDate).add(84, 'days').format('YYYY-MM-DD');
             this.setState({ lastDate });
             this.setState({ dates }, () => console.log(dates));
-
-        }
-        else {
-            console.log("Some other scroll");
         }
     }
 
@@ -65,6 +56,10 @@ export default class Grid extends Component {
         const gridHeight = this.grid.current.clientHeight;
         this.gridHeight = gridHeight;
         console.log("GRID HEIGHT UPDATE: ", this.gridHeight);
+    }
+
+    dayClicked = (daySelected) => {
+        this.setState({ daySelected });
     }
 
     componentDidMount() {
@@ -81,27 +76,20 @@ export default class Grid extends Component {
 
     componentDidUpdate() {
         console.log("Component Updated!!!!");
-        // if (this.state.dateBeforePastDatesLoad) {
-        //     console.log("we scrolling into view");
-        //     this.pastDatesScrollRef.current.scrollIntoView();
-        // }
         if (this.maintainScrollPosition) {
             this.pastDatesScrollRef.current.scrollIntoView();
             this.maintainScrollPosition = false;
         }
         this.adjustGridHeight();
-        console.log("NEW grid height: ", this.grid.current.clientHeight);
     }
 
-
-
     render() {
-        const { dates, today, daysOfWeek, weekDay, dateBeforePastDatesLoad } = this.state;
+        const { dates, today, daysOfWeek, weekDay, dateBeforePastDatesLoad, daySelected } = this.state;
         return (
             <div className="main-container">
-                <div className="view-container">
-
-                </div>
+                <GridView
+                    daySelected={daySelected}
+                />
                 <div className="grid-container">
                     <div className="grid-header">
                         {daysOfWeek.map((day, key) =>
@@ -113,7 +101,11 @@ export default class Grid extends Component {
                             <div className="grid-loader">Loading...</div>
                             {dates.map((date, key) =>
                                 <div key={key} ref={date === today ? this.scrollRef : date === dateBeforePastDatesLoad ? this.pastDatesScrollRef : ""} className={"day-container " + (date === dateBeforePastDatesLoad ? "date-before-load" : "")}>
-                                    <Day date={date} key={key} />
+                                    <Day
+                                        daySelected={date === daySelected ? "" : this.dayClicked}
+                                        date={date}
+                                        key={key}
+                                    />
                                 </div>
                             )}
                             <div className="grid-loader">Loading...</div>
