@@ -13,7 +13,6 @@ export default class Grid extends Component {
             dates: initializeCalendarDays(moment().format('YYYY-MM-DD'), 84, 84),
             firstDate: "",
             lastDate: "",
-            daysOfWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             weekDay: moment().format('ddd'),
             daySelected: moment().format('YYYY-MM-DD'),
             gridBoxHeight: 0,
@@ -92,7 +91,7 @@ export default class Grid extends Component {
                 />
                 <div className="grid-container">
                     <div className="grid-header">
-                        {daysOfWeek.map((day, key) =>
+                        {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, key) =>
                             <div className={day === weekDay? "grid-header-today" : ""} key={key}>{day}</div>
                         )}
                     </div>

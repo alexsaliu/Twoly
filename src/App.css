@@ -1,7 +1,28 @@
 :root {
-    --theme-accent-color: red;
+    --theme-color-red: #e80000;
 }
 
 .main-container {
     height: 100vh;
+}
+
+.app-load-screen {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--theme-color-red);
+}
+
+.app-load-screen img {
+    width: 100px;
+    opacity: 0;
+    animation: forwards;
+    animation-name: appStart;
+    animation-duration: 2s;
+}
+
+@keyframes appStart {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }

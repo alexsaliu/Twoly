@@ -8,12 +8,12 @@
     font-size: 0.7em;
 }
 .grid-header-today {
-    color: var(--theme-accent-color);
+    color: var(--theme-color-red);
     font-weight: bold;
 }
 .grid-container {
     height: 55%;
-    box-shadow: 0px 0px 5px -2px red;
+    box-shadow: 0px 0px 5px -2px var(--theme-color-red);
 }
 .grid-box {
     height: calc(100% - 20px);
@@ -60,7 +60,7 @@
     color: grey;
 }
 .today {
-    background: red;
+    background: var(--theme-color-red);
 }
 .today .day-date {
     color: white;

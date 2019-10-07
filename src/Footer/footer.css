@@ -17,5 +17,5 @@
     font-size: 1.2em;
 }
 .footer-button-selected i {
-    color: var(--theme-accent-color);
+    color: var(--theme-color-red);
 }
