@@ -19,3 +19,6 @@
 .footer-button-selected i {
     color: var(--theme-color-red);
 }
+.footer-button-inactive i {
+    color: lightgrey;
+}

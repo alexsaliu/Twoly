@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Grid from './Grid';
+import Header from './Header';
 import Footer from './Footer';
 import twolyLogo from './Assets/twoly-icon-white-red.png';
 
@@ -21,6 +22,7 @@ function App() {
             </div>
         ) : (
             <div>
+                <Header />
                 <Grid />
                 <Footer />
             </div>

@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette|Open+Sans&display=swap');
+
 :root {
     --theme-color-red: #e80000;
+}
+
+body {
+    font-family: 'Open Sans';
 }
 
 .main-container {
