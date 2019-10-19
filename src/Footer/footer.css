@@ -2,10 +2,14 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: #ffffff;
+    background: #1b1b1b;
     box-shadow: 0px 0px 4px -1px grey;
     height: 45px;
     display: flex;
+}
+.footer-spacer {
+    height: 45px;
+    width: 100%;
 }
 .footer-button {
     display: flex;
@@ -15,10 +19,14 @@
 }
 .footer-button i {
     font-size: 1.2em;
+    color: grey;
+}
+.footer-button-selected {
+    /* box-shadow: inset 0px -10px 5px -7px #e80000; */
 }
 .footer-button-selected i {
-    color: var(--theme-color-red);
+    color: white;
 }
 .footer-button-inactive i {
-    color: lightgrey;
+    color: #313131;
 }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import Day from './day';
-import GridView from './gridView';
+import GridView from './gridView'
+import DayControls from './dayControls';
 import {initializeCalendarDays, loadMoreDates} from './helpers';
 import './grid.css';
 
@@ -86,6 +87,7 @@ export default class Grid extends Component {
         const { dates, today, daysOfWeek, weekDay, dateBeforePastDatesLoad, daySelected } = this.state;
         return (
             <div className="main-container">
+                <div className="header-spacer"></div>
                 <GridView
                     daySelected={daySelected}
                 />
@@ -109,9 +111,10 @@ export default class Grid extends Component {
                             )}
                             <div className="grid-loader">Loading...</div>
                         </div>
-                        <div className="grid-footer-spacer"></div>
                     </div>
                 </div>
+                <DayControls daySelected={daySelected} />
+                <div className="footer-spacer"></div>
             </div>
         )
     }

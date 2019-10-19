@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
         {appLoadScreen ? (
-            <div class="app-load-screen">
+            <div className="app-load-screen">
             <img src={twolyLogo} alt="twoly logo"></img>
             </div>
         ) : (

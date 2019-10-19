@@ -8,12 +8,12 @@
     font-size: 0.7em;
 }
 .grid-header-today {
-    color: var(--theme-color-red);
+    color: var(--red);
     font-weight: bold;
 }
 .grid-container {
-    height: 55%;
-    box-shadow: 0px 0px 5px -2px var(--theme-color-red);
+    height: calc(100% - 340px);
+    box-shadow: 0px 0px 5px -2px var(--red);
 }
 .grid-box {
     height: calc(100% - 20px);
@@ -24,10 +24,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-.grid-footer-spacer {
-    width: 100%;
-    height: 50px;
 }
 .grid-loader {
     height: 50px;
@@ -42,10 +38,6 @@
     margin: 2px;
     background: white;
 }
-.view-container {
-    height: 45%;
-    width: 100%;
-}
 .day {
     height: 100%;
     box-shadow: 0px 0px 2px 0px lightgrey;
@@ -55,12 +47,12 @@
 }
 .day-date {
     font-size: 1.4em;
-    text-align: right;
-    padding: 0 3px 0 0;
+    text-align: left;
+    padding-left: 2px;
     color: grey;
 }
 .today {
-    background: var(--theme-color-red);
+    background: black;
 }
 .today .day-date {
     color: white;
@@ -68,41 +60,105 @@
 .day-selected {
     box-shadow: 0px 0px 0px 1px black;
 }
-
+.day-date div {
+    display: flex;
+    color: var(--red);
+    font-weight: bold;
+}
 /* GridView */
-
-.view-container-date {
-    height: 25px;
-    color: grey;
+.view-container {
+    height: 200px;
+    width: 100%;
+    display: flex;
+}
+.view-container-menu {
+    height: 100%;
+    width: 50px;
+    color: lightgrey;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
 }
 .view-container-body {
-    height: calc(100% - 25px);
-}
-.view-container-add-display {
     height: 100%;
+    width: calc(100% - 50px);
+}
+.view-container-date {
+    height: 20px;
+    width: 100%;
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+}
+.view-container-menu-button {
+    width: 100%;
+    height: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.view-container-menu-button.event i {
+    color: var(--green);
+}
+.view-container-menu-button.surprise i {
+    color: var(--red);
+}
+.view-container-menu-button.memory i {
+    color: var(--purple);
+}
+.view-container-menu-button.view-container-menu-button-notselected i {
+    color: grey
+}
+
+/* day controls */
+.day-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 50px;
+}
+.day-button {
+    width: calc(33.33% - 10px);
+    display: flex;
+    align-items: center;
+    height: 35px;
+    box-shadow: 2px 2px 4px -1px grey;
+    border-radius: 20px;
+}
+.day-button-icon {
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.view-container-add {
-    transform: translateY(-12.5px);
-    color: white;
-    width: 150px;
-    height: 150px;
     border-radius: 50%;
-    background: whitesmoke;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-shadow: 0px 0px 3px 0px grey;
 }
-.view-container-add i {
-    transform: translateY(5px);
-    font-size: 6em;
+.day-button-icon i {
+    color: white;
 }
-.view-container-add-instruction {
-    position: absolute;
-    bottom: 0;
-    transform: translateY(25px);
-    color: #e8e8e8;
+.day-button-event {
+    background: #00ba00;
+}
+.day-button-surprise {
+    background: var(--red);
+}
+.day-button-memory {
+    background: #b8006c;
+}
+.day-button-event i {
+    font-size: 0.7em;
+}
+.day-button-surprise i {
+    font-size: 0.6em;
+}
+.day-button-memory i {
+    font-size: 0.6em;
+}
+.day-button-text {
+    margin-left: 5px;
+    font-size: 0.7em;;
+    color: grey;
 }

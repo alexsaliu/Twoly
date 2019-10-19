@@ -2,13 +2,13 @@ import React from 'react';
 import './header.css';
 import 'font-awesome/css/font-awesome.min.css';
 import logo from '../Assets/twoly-red-white-circle.png';
-import partner from '../Assets/lest-1.png';
+import partner from '../Assets/person.png';
 
 const Header = () => {
     return (
         <div className="header">
             <div className="header-left-container">
-                <div className="header-hamburger"><i class="fa fa-bars"></i></div>
+                <div className="header-hamburger"><i className="fa fa-bars"></i></div>
                 <div className="header-logo"><img src={logo} alt="twoly-logo" /></div>
                 <div className="header-brand">Twoly &#60;2</div>
             </div>

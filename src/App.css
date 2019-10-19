@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Courgette|Open+Sans&display=swap');
 
 :root {
-    --theme-color-red: #e80000;
+    --red: #e80000;
+    --green: #00ba00;
+    --purple: #b8006c;
 }
 
 body {
@@ -17,7 +19,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--theme-color-red);
+    background: var(--red);
 }
 
 .app-load-screen img {
