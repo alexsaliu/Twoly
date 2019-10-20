@@ -6,7 +6,7 @@ import Footer from './Footer';
 import twolyLogo from './Assets/twoly-icon-white-red.png';
 
 function App() {
-    const [appLoadScreen, setAppLoadScreen] = useState(true);
+    const [appLoadScreen, setAppLoadScreen] = useState(false);
 
     useEffect(() => {
         setTimeout(function() {

@@ -85,6 +85,9 @@
     height: 100%;
     width: calc(100% - 50px);
 }
+.view-container-details {
+    height: calc(100% - 20px);
+}
 .view-container-date {
     height: 20px;
     width: 100%;
@@ -111,6 +114,15 @@
 .view-container-menu-button.view-container-menu-button-notselected i {
     color: grey
 }
+.view-container-events {
+    background: var(--green);
+    margin-right: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
 
 /* day controls */
 .day-controls {
@@ -123,9 +135,18 @@
     width: calc(33.33% - 10px);
     display: flex;
     align-items: center;
-    height: 35px;
+    height: 28px;
     box-shadow: 2px 2px 4px -1px grey;
     border-radius: 20px;
+}
+.day-button-icon-inner {
+    width: 29px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
 }
 .day-button-icon {
     width: 35px;
@@ -140,22 +161,28 @@
     color: white;
 }
 .day-button-event {
-    background: #00ba00;
+    /* background: var(--green); */
+    background: linear-gradient(90deg, var(--green), #00ff00);
 }
 .day-button-surprise {
-    background: var(--red);
+    /* background: var(--red); */
+    background: linear-gradient(90deg, var(--red), #ff6d6d);
 }
 .day-button-memory {
-    background: #b8006c;
+    /* background: var(--purple); */
+    background: linear-gradient(90deg, var(--purple), #ff0096);
 }
 .day-button-event i {
     font-size: 0.7em;
+    color: var(--green);
 }
 .day-button-surprise i {
     font-size: 0.6em;
+    color: var(--red);
 }
 .day-button-memory i {
     font-size: 0.6em;
+    color: var(--purple);
 }
 .day-button-text {
     margin-left: 5px;
